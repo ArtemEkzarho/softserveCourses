@@ -67,3 +67,5 @@ function sortWithDiraction(arr, direction) {
 		});
 	}
 }
+
+//fixed indents
