@@ -31,7 +31,9 @@ document.addEventListener("DOMContentLoaded", function(){
   		}
     } 
 
-    function changeToDate () {
+    function changeToDate (event) {
+    	event.preventDefault();
+
         dateWrap.className = 'show';
         clockWrap.className = 'hide';
     }
