@@ -1,71 +1,62 @@
-function getMaxNumber(first, second, third) {
-	var maxNumber = first;
+function getMax (first, second, third) {
+    var maxNumber = first,
+    	numbers = [first, second, third];
 
-	for (var i = 0; i < arguments.length; i += 1) {
-		if (arguments[i] > maxNumber) {
-			maxNumber = arguments[i];
-		}
-	}
+    for (var i = 0; i < numbers.length; i++) {
+        if (numbers[i] > maxNumber) {
+            maxNumber = numbers[i];
+        }
+    }
 
-	return maxNumber;
+    return maxNumber;
 }
 
-function getMaxElemetFrom(arr) {
-	var maxElemet = arr[0];
+function getMaxElemet (arr) {
+    var maxElemet = arr[0];
 
-	for (var i = 0; i < arr.length; i += 1) {
-		if (arr[i] > maxElemet) {
-			maxElemet = arr[i];
-		}
-	}
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] > maxElemet) {
+            maxElemet = arr[i];
+        }
+    }
 
-	return maxElemet;
+    return maxElemet;
 }
 
-function getIndexOfMinElementFrom(arr) {
-	var minElement = arr[0],
-		minIndex = 0;
+function getMinIndex (arr) {
+    var minElement = arr[0],
+        minIndex = 0;
 
-	for (var i = 0; i < arr.length; i += 1) {
-		if(arr[i] < minElement) {
-			minElement = arr[i];
-			minIndex = i;
-		}
-	}
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] < minElement) {
+            minElement = arr[i];
+            minIndex = i;
+        }
+    }
 
-	return minIndex;
+    return minIndex;
 }
 
-function getCopyArrayFrom(arr) {
-	var newArr = [];
+function copyArray (arr) {
+    var newArr = [];
 
-	for(var i = 0; i < arr.length; i += 1) {
-		newArr.push(arr[i]);
-	}
+    for (var i = 0; i < arr.length; i++) {
+        newArr.push(arr[i]);
+    }
 
-	return newArr;
+    return newArr;
 }
-
 
 // false - decreasing, true - increasing
-function sortWithDiraction(arr, direction) {
-	if (direction) {
-		return arr.sort(function(a,b) {
-			if (a > b) {
-				return 1;
-			} else {
-				return -1;
-			}
-		});
-	} else {
-		return arr.sort(function(a,b) {
-			if (a < b) {
-				return 1;
-			} else {
-				return -1;
-			}
-		});
-	}
+function sortWithDiraction (arr, direction) {
+    if (direction) {
+        return arr.sort(function(a, b) {
+            return (a > b)? 1: -1;
+        });
+    } else {
+        return arr.sort(function(a, b) {
+            return (a < b)? 1: -1;
+        });
+    }
 }
-
 //fixed indents
