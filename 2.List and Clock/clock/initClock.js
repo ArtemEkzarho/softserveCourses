@@ -2,23 +2,17 @@
 
 document.addEventListener("DOMContentLoaded", function(){
     var date = new Date(),
-    	month = date.getMonth() + 1,  
-    	days = date.getDate(),
-    	year = date.getFullYear(),
-    	hours = date.getHours(),
-    	minutes = date.getMinutes(),
-    	seconds = date.getSeconds(),
         clock = document.getElementById('clock'),
         secondsWrap = document.getElementById('secondsWrap'),
         dateWrap = document.getElementById('dateWrap'),
         clockWrap = document.getElementById('clockWrap');
 
-    document.getElementById('month').innerHTML = month;
-    document.getElementById('day').innerHTML = days;
-    document.getElementById('year').innerHTML = year;
-    document.getElementById('hours').innerHTML = hours;
-    document.getElementById('minutes').innerHTML = minutes;
-    document.getElementById('seconds').innerHTML = seconds;
+    document.getElementById('month').innerHTML = date.getMonth() + 1;
+    document.getElementById('day').innerHTML = date.getDate();
+    document.getElementById('year').innerHTML = date.getFullYear();
+    document.getElementById('hours').innerHTML = date.getHours();
+    document.getElementById('minutes').innerHTML = date.getMinutes();
+    document.getElementById('seconds').innerHTML = date.getSeconds();
 
     function changeTimeStatus () {
         var seconds = secondsWrap.className,
