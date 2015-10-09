@@ -1,3 +1,5 @@
+'use strict';
+
 function getMax (first, second, third) {
     var maxNumber = first,
     	numbers = [first, second, third];
