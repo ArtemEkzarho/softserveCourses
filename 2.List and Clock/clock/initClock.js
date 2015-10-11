@@ -16,29 +16,29 @@ document.addEventListener("DOMContentLoaded", function(){
 
     function changeTimeStatus () {
         var seconds = secondsWrap.className,
-        	clock = clockWrap.className;
+            clock = clockWrap.className;
 
-  		if (clock === 'show') {
-  			if (seconds === 'hide') {
-	            secondsWrap.className = 'show';
-	        } else {
-	            secondsWrap.className = 'hide';
-	        }
-  		} else {
-  			dateWrap.className = 'hide';
-        	secondsWrap.className = 'hide';
-        	clockWrap.className = 'show';
-  		}
+        if (clock === 'show') {
+            if (seconds === 'hide') {
+                secondsWrap.className = 'show';
+            } else {
+                secondsWrap.className = 'hide';
+            }
+        } else {
+            dateWrap.className = 'hide';
+            secondsWrap.className = 'hide';
+            clockWrap.className = 'show';
+        }
     } 
 
     function changeToDate (event) {
-    	event.preventDefault();
+        event.preventDefault();
 
         dateWrap.className = 'show';
         clockWrap.className = 'hide';
     }
 
-   	clock.addEventListener('click', changeTimeStatus, false);
+    clock.addEventListener('click', changeTimeStatus, false);
     clock.addEventListener('contextmenu', changeToDate, true);
 
 }, false);
