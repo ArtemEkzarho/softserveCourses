@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     clock.addEventListener('click', changeTimeStatus, false);
-    clock.addEventListener('contextmenu', changeToDate, true);
+    clock.addEventListener('contextmenu', changeToDate, false);
 
 }, false);
 
