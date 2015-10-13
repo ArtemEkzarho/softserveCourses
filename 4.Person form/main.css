@@ -18,15 +18,15 @@ p {
     border-radius: 5px;
 }
 
-    .editForm table, .reviewForm table, .editForm table tr td input {
-        width: 100%;
-    }
+.editForm table, .reviewForm table, .editForm table tr td input {
+    width: 100%;
+}
 
-       .editForm .reviewBtn, .reviewForm .editBtn {
-        width: 200px;
-        display: block;
-        margin: 15px auto;
-       }
+.editForm .reviewBtn, .reviewForm .editBtn {
+    width: 200px;
+    display: block;
+    margin: 15px auto;
+}
 
 .reviewForm table tr td {
     height: 21px;
