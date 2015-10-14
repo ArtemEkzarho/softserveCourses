@@ -5,6 +5,12 @@ document.addEventListener("DOMContentLoaded", function () {
         editBtn = getEl('editBtn'),
         editForm = getEl('editForm'),
         reviewForm = getEl('reviewForm'),
+        nameInput = getEl('nameInput'),
+        lastnameInput = getEl('lastnameInput'),
+        ageInput = getEl('ageInput'),
+        genderInput = getEl('genderInput'),
+        emailInput = getEl('emailInput'),
+        skypeInput = getEl('skypeInput'),
         person = new Person({
             name: 'Artem',
             lastName: 'Ekzarkho',
@@ -14,48 +20,38 @@ document.addEventListener("DOMContentLoaded", function () {
             skype: 'x23-rd23'
         });
 
-    addInfoToForm();
+    nameInput.value = person.name;
+    lastnameInput.value = person.lastName;
+    ageInput.value = person.age;
+    genderInput.value = person.gender;
+    emailInput.value = person.email;
+    skypeInput.value = person.skype;
 
     reviewBtn.addEventListener('click', goToReview, false);
     editBtn.addEventListener('click', goToEdit, false);
 
-    function addInfoToForm () {
-        getEl('nameInput').value = person.name;
-        getEl('lastnameInput').value = person.lastName;
-        getEl('ageInput').value = person.age;
-        getEl('genderInput').value = person.gender;
-        getEl('emailInput').value = person.email;
-        getEl('skypeInput').value = person.skype;
-    }
-
-    function addInfoToObj () {
-        person.name = getEl('nameInput').value;
-        person.lastName = getEl('lastnameInput').value;
-        person.age = getEl('ageInput').value;
-        person.gender = getEl('genderInput').value;
-        person.email = getEl('emailInput').value;
-        person.skype = getEl('skypeInput').value;
-    }
-
     function goToReview () {
         editForm.className = 'editForm hide';
         reviewForm.className = 'reviewForm';
-        addInfoToObj();
-        setInfoToReview();
-    }
 
-    function goToEdit () {
-        editForm.className = 'editForm';
-        reviewForm.className = 'reviewForm hide';
-    }
+        person.name = nameInput.value;
+        person.lastName = lastnameInput.value;
+        person.age = ageInput.value;
+        person.gender = genderInput.value;
+        person.email = emailInput.value;
+        person.skype = skypeInput.value;
 
-    function setInfoToReview () {
         getEl('nameValue').innerHTML = person.name;
         getEl('lastnameValue').innerHTML = person.lastName;
         getEl('ageValue').innerHTML = person.age;
         getEl('genderValue').innerHTML = person.gender;
         getEl('emailValue').innerHTML = person.email;
         getEl('skypeValue').innerHTML = person.skype;
+    }
+
+    function goToEdit () {
+        editForm.className = 'editForm';
+        reviewForm.className = 'reviewForm hide';
     }
 
 });
