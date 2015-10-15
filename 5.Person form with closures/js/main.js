@@ -22,7 +22,7 @@ function main () {
             gender: 'boy',
             email: 'artem.ekzarho@gmail.com',
             skype: 'x23-rd23'
-           }),
+        }),
 
         inputs = document.querySelectorAll('.inputCell input'),
         personKeys = person().toArray();    
