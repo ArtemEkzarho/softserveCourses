@@ -9,6 +9,15 @@ function Clock (clockWrap) {
 	clockWrap.addEventListener('click', changeTimeStatus, false);
 	clockWrap.addEventListener('contextmenu', changeToDate, false);
 
+	function startClock (state) {
+		clearInterval(interval);
+		clockWrap.className = state;
+		view.addClock(state);
+		interval = setInterval(function () {
+				view.addClock(state);
+		}, 1000)
+	}
+	
 	function changeToDate (event) {
 		event.preventDefault();
 		startClock('date');
@@ -23,15 +32,6 @@ function Clock (clockWrap) {
 		} else {
 			startClock('extendedTime');
 		}
-	}
-
-	function startClock (state) {
-		clearInterval(interval);
-		clockWrap.className = state;
-		view.addClock(state);
-		interval = setInterval(function () {
-				view.addClock(state);
-		}, 1000)
 	}
 
 	return this;
