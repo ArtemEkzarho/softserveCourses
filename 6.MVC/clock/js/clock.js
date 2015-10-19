@@ -15,7 +15,7 @@ function Clock (clockWrap) {
 		view.addClock(state);
 		interval = setInterval(function () {
 		    view.addClock(state);
-		}, 1000)
+		}, 1000);
 	}
 	
 	function changeToDate (event) {
