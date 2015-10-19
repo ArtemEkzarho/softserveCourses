@@ -2,7 +2,7 @@
 
 function Clock (clockWrap) {
 	var interval,
-		view = new View(clockWrap);
+	    view = new View(clockWrap);
 
 	startClock('time');
 
@@ -14,7 +14,7 @@ function Clock (clockWrap) {
 		clockWrap.className = state;
 		view.addClock(state);
 		interval = setInterval(function () {
-				view.addClock(state);
+		    view.addClock(state);
 		}, 1000)
 	}
 	
