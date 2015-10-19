@@ -1,8 +1,8 @@
 'use strict';
 
 function View (person) {
-	var personKeys = person.toArray(),
-		editForm = document.querySelector('#editForm'),
+    var personKeys = person.toArray(),
+        editForm = document.querySelector('#editForm'),
         reviewForm = document.querySelector('#reviewForm'),
         reviewBtn = document.querySelector('#reviewBtn'),
         editBtn = document.querySelector('#editBtn'),
