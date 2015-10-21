@@ -1,5 +1,5 @@
 'use strict'
 
-function getEl (selector) {
+function getEL (selector) {
 	return document.querySelector(selector);
 }
