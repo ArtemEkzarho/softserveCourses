@@ -2,11 +2,11 @@
 
 function View (person) {
     var personKeys = person.toArray(),
-        editForm = document.querySelector('#editForm'),
-        reviewForm = document.querySelector('#reviewForm'),
-        reviewBtn = document.querySelector('#reviewBtn'),
-        editBtn = document.querySelector('#editBtn'),
-        inputs = document.querySelectorAll('.inputCell input');
+        editForm = getEL('#editForm'),
+        reviewForm = getEL('#reviewForm'),
+        reviewBtn = getEL('#reviewBtn'),
+        editBtn = getEL('#editBtn'),
+        inputs = getAllEl('.inputCell input');
 
     for (var i = 0; i < inputs.length; i++) {
         inputs[i].value = personKeys[i];
