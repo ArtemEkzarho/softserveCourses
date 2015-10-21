@@ -7,12 +7,12 @@ function Person (obj) {
         gender = obj.gender,
         email = obj.email,
         skype = obj.skype,
-        nameInput = document.querySelector('#nameInput'),
-        lastnameInput = document.querySelector('#lastnameInput'),
-        ageInput = document.querySelector('#ageInput'),
-        genderInput = document.querySelector('#genderInput'),
-        emailInput = document.querySelector('#emailInput'),
-        skypeInput = document.querySelector('#skypeInput');
+        nameInput = getEl('#nameInput'),
+        lastnameInput = getEl('#lastnameInput'),
+        ageInput = getEl('#ageInput'),
+        genderInput = getEl('#genderInput'),
+        emailInput = getEl('#emailInput'),
+        skypeInput = getEl('#skypeInput');
 
     this.toArray = function () {
         return [name, lastName, age, gender, email, skype];
@@ -28,7 +28,7 @@ function Person (obj) {
     };
 
     this.getData = function () {
-        var textPlaces = document.querySelectorAll('.textCell p'),
+        var textPlaces = getEl('.textCell p'),
             keys = this.toArray();
 
         for (var i = 0; i < textPlaces.length; i++) {

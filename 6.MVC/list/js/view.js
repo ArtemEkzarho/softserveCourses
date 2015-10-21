@@ -1,7 +1,7 @@
 'use strict';
 
 function View () {
-    var list = getEL('#students tbody'),
+    var list = getEl('#students tbody'),
         finalTemplate= '',
         students = [
             new Person('Artem', 'Ekzarkho', 'boy'),
