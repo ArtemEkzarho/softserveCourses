@@ -1,8 +1,8 @@
 'use strict';
 
 function View () {
-    var list = document.getElementById('students'),
-        tr,
+    var list = getEL('#students tbody'),
+        finalTemplate= '',
         students = [
             new Person('Artem', 'Ekzarkho', 'boy'),
             new Person('Yevheniia', 'Kryschyk', 'girl'),
@@ -12,23 +12,28 @@ function View () {
             new Person('Oleksandr', 'Poltorak', 'boy'),
             new Person('Dmytryi', 'Hun\'ko', 'boy'),
             new Person('Oleksandr', 'Den\'ha', 'boy')
-        ];
+        ],
+        row = '<tr>' +
+                  '<td><%=name%></td>' +
+                  '<td><%=surname%></td>' +
+                  '<td><%=gender%></td>' +
+              '</tr>';
 
-    function createTd (str, parent) {
-        var td = document.createElement('TD');
-        td.innerHTML = str;
+    function templater (template, list) {
+        var completedRow = template;
 
-        parent.appendChild(td);
+        for(var key in list) {
+            completedRow = completedRow.replace('<%=' + key + '%>', list[key]);
+        }
+
+        return completedRow;
     }
 
-    for (var i = 0; i < students.length; i++) {        
-        tr = document.createElement('TR');
-        createTd(students[i].name, tr);
-        createTd(students[i].surname, tr);
-        createTd(students[i].gender, tr);
-
-        list.appendChild(tr);    
+    for (var i = 0; i < students.length; i += 1) {
+        finalTemplate += templater(row, students[i]);
     }
+
+    list.innerHTML = finalTemplate;
 
     return this;
 }
