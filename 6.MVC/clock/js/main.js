@@ -1,9 +1,9 @@
 'use strict';
 
 document.addEventListener("DOMContentLoaded", function () {
-	var clockWrap =  document.querySelector('#clock');
+    var clockWrap =  document.querySelector('#clock');
 
-	new Clock(clockWrap);
+    new Clock(clockWrap);
 }, false);
 
 
