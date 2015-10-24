@@ -10,7 +10,6 @@ function toPalindrome (number) {
     var result = number;
     
     while (isPalindrom(result) === false) {
-      console.log(result);
       result++;
     }
 
@@ -29,7 +28,7 @@ function isPalindrom (number) {
         if (numbers.length === 1) {
             result = false;
         } else {
-        	// checking the number of digits
+        	// check the number of digits, odd or even
             if (numbers.length%2 === 0) {
                 for (i = 0; i < numbers.length; i++) {
                     if (i > centerIndex) {
