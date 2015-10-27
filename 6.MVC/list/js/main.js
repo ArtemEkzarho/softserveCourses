@@ -1,6 +1,6 @@
 'use strict';
 
 document.addEventListener("DOMContentLoaded", function () {
-    new View();
+ 	var controller = new Controller();
 });
 

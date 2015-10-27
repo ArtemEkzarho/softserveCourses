@@ -1,9 +1,13 @@
 'use strict';
 
 function Person (name, surname, gender) {
-    this.name = name;
-    this.surname = surname;
-    this.gender = gender;
+    var name = name,
+    	surname = surname,
+    	gender = gender;
 
-    return this;
+    return {
+    	name: name,
+    	surname: surname,
+    	gender: gender
+    }
 }

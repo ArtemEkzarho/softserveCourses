@@ -19,21 +19,26 @@ function View () {
                   '<td><%=gender%></td>' +
               '</tr>';
 
-    function templater (template, list) {
-        var completedRow = template;
+    render();
 
-        for(var key in list) {
+    function render () {
+        students.forEach(function (student){
+            finalTemplate += templater(row, student);
+        });
+
+        list.innerHTML = finalTemplate;
+    }
+
+    function templater (template, list) {
+        var completedRow = template,
+            key;
+
+        for (key in list) {
             completedRow = completedRow.replace('<%=' + key + '%>', list[key]);
         }
 
         return completedRow;
     }
-
-    for (var i = 0; i < students.length; i += 1) {
-        finalTemplate += templater(row, students[i]);
-    }
-
-    list.innerHTML = finalTemplate;
 
     return this;
 }
