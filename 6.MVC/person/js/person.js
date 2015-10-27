@@ -1,11 +1,14 @@
 'use strict';
 
 function Person (obj) {
-    this.toArray = function () {
-        var result = [];
+    var data = obj;
 
-        for (var key in obj) {
-            result.push(obj[key]);
+    this.toArray = function () {
+        var result = [],
+            key;
+
+        for (key in data) {
+            result.push(data[key]);
         }
         
         return result;
@@ -13,10 +16,11 @@ function Person (obj) {
       
     this.setData = function () {
         var inputs = getAllEl('.inputCell input'),
-            i = 0;
+            i = 0,
+            key;
 
-        for (var key in obj) {
-            obj[key] = inputs[i].value;
+        for (var key in data) {
+            data[key] = inputs[i].value;
             i++;
         }    
     };

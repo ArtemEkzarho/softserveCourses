@@ -1,7 +1,15 @@
 'use strict';
 
-function View (person) {
-    var personKeys = person.toArray(),
+function View () {
+    var person = new Person({
+            name: 'Artem',
+            lastName: 'Ekzarkho',
+            age: '18',
+            gender: 'boy',
+            email: 'artem.ekzarho@gmail.com',
+            skype: 'x23-rd23'
+        }),
+        personKeys = person.toArray(),
         editForm = getEL('#editForm'),
         reviewForm = getEL('#reviewForm'),
         reviewBtn = getEL('#reviewBtn'),
