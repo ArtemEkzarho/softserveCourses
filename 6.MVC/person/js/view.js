@@ -16,19 +16,26 @@ function View () {
         editBtn = getEL('#editBtn'),
         inputs = getAllEl('.inputCell input');
 
-    for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = personKeys[i];
-    }
+    render();
 
     reviewBtn.addEventListener('click', goToReview, false);
     editBtn.addEventListener('click', goToEdit, false);
 
+    function render () {
+        Array.prototype.forEach.call(inputs, function (item, i, arr) {
+            arr[i].value = personKeys[i];
+        });
+    } 
+
     function goToReview () {
+        var inputs = getAllEl('.inputCell input'),
+            textPlaces = getAllEl('.textCell p');
+
         editForm.className = 'editForm hide';
         reviewForm.className = 'reviewForm';
 
-        person.setData();
-        person.getData();
+        person.setData(inputs);
+        person.getData(textPlaces);
     }    
 
     function goToEdit () {

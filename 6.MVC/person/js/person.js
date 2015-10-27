@@ -1,6 +1,8 @@
 'use strict';
 
 function Person (obj) {
+    //i think that this variable is not needed, because 
+    //it and its keys are not used singly in next code
     var data = obj;
 
     this.toArray = function () {
@@ -14,9 +16,8 @@ function Person (obj) {
         return result;
     };
       
-    this.setData = function () {
-        var inputs = getAllEl('.inputCell input'),
-            i = 0,
+    this.setData = function (inputs) {
+        var i = 0,
             key;
 
         for (var key in data) {
@@ -25,13 +26,12 @@ function Person (obj) {
         }    
     };
 
-    this.getData = function () {
-        var textPlaces = getAllEl('.textCell p'),
-            keys = this.toArray();
+    this.getData = function (textPlaces) {
+        var keys = this.toArray();
 
-        for (var i = 0; i < textPlaces.length; i++) {
-            textPlaces[i].innerHTML = keys[i];
-        }        
+        Array.prototype.forEach.call(textPlaces, function (item, i, arr) {
+            arr[i].innerHTML = keys[i];
+        });    
     };
 
     return this;
