@@ -22,7 +22,7 @@ function View () {
     editBtn.addEventListener('click', goToEdit, false);
 
     function render () {
-        Array.prototype.forEach.call(inputs, function (item, i, arr) {
+        [].forEach.call(inputs, function (item, i, arr) {
             arr[i].value = personKeys[i];
         });
     } 

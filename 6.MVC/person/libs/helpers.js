@@ -11,6 +11,6 @@ var helpers = (function (){
 
     return {
         getEl: getEl,
-        getAllEl: getAllEl
+        getAllEl: getAllEl,
     }
 }());
