@@ -28,11 +28,11 @@ function isPalindrom (number) {
         if (numbers.length === 1) {
             result = false;
         } else {
-        	// check the number of digits, odd or even
+            // check the number of digits, odd or even
             if (numbers.length%2 === 0) {
                 for (i = 0; i < numbers.length; i++) {
                     if (i > centerIndex) {
-                    	//starting check from the middle of the number
+                        //starting check from the middle of the number
                         if (numbers[i] === numbers[countdown]) {
                             result = true;
                         } else {
