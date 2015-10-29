@@ -1,6 +1,6 @@
 'use strict';
 
-function tableModel (personalData) {
+function TableModel (personalData) {
     var name = personalData.name,
         surname = personalData.surname,
         gender = personalData.gender;

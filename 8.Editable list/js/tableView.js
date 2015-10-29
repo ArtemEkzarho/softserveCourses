@@ -1,8 +1,8 @@
 'use strict';
 
-function tableView (parentNode, students) {
-	var finalTpl = '',
-		row = '<tr>' +
+function TableView (parentNode, students) {
+    var finalTpl = '',
+        row = '<tr>' +
                 '<td><%=name%></td>' +
                 '<td><%=surname%></td>' +
                 '<td><%=gender%></td>' +
@@ -12,10 +12,10 @@ function tableView (parentNode, students) {
 
     function render () {
         students.forEach(function (student){
-            finalTemplate += helpers.templater(row, student);
+            finalTpl += helpers.templater(row, student.toJSON());
         });
 
-        parentNode.innerHTML = finalTemplate;
+        parentNode.innerHTML = finalTpl;
     }
 
     return this;
