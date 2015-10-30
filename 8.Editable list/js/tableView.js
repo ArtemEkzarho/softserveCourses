@@ -25,7 +25,7 @@ function TableView (parentNode, students) {
 
         [].forEach.call(btns, function (item) {
             item.addEventListener('click', function () {
-                console.log('1');
+                var formController = new FormController();
             });
         });
     }
