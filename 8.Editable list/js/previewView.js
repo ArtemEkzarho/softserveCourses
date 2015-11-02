@@ -1,8 +1,7 @@
 'use strict';
 
-function PreviewView (parentNode, modelId) {
+function PreviewView (parentNode, modelId, tableWrap) {
 	var previewTpl = 
-		'<p class="title"><b>Preview form</b></p>'+
 		'<p><b class="inputLabel">Name: </b><span><%=name%></span></p>'+
 		'<p><b class="inputLabel">Surname: </b><span><%=surname%></span></p>'+
 		'<p><b class="inputLabel">Gender: </b><span><%=gender%></span></p>'+
@@ -22,11 +21,11 @@ function PreviewView (parentNode, modelId) {
 	saveBtn.addEventListener('click', saveChanges, false);
 
 	function goToEdit () {
-		var editview = new EditView(parentNode, modelId);
+		var editview = new EditView(parentNode, modelId, tableWrap);
 	}
 
 	function saveChanges () {
-		var tableView = new TableView(helpers.getEl('#students tbody'), students);
+		var tableView = new TableView(tableWrap, students);
 	}
 
 	return this;	

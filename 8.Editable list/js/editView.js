@@ -1,8 +1,7 @@
 'use strict';
 
-function EditView (parentNode, modelId) {
+function EditView (parentNode, modelId, tableWrap) {
 	var editableTpl = 
-		'<p class="title"><b>Editable form</b></p>'+
 		'<p><b class="inputLabel">Name: </b><input type="text" name="name" value="<%=name%>"></p>'+
 		'<p><b class="inputLabel">Surname: </b><input type="text" name="surname" value="<%=surname%>"></p>'+
 		'<p><b class="inputLabel">Gender: </b><input type="text" name="gender" value="<%=gender%>"></p>'+
@@ -28,7 +27,7 @@ function EditView (parentNode, modelId) {
 
 		model.set(inputs);
 
-		preview = new PreviewView(parentNode, modelId);
+		preview = new PreviewView(parentNode, modelId, tableWrap);
 	}
 
 	function saveChanges () {
@@ -36,8 +35,8 @@ function EditView (parentNode, modelId) {
 			tableView;
 
 		model.set(inputs);
-		
-		tableView = new TableView(helpers.getEl('#students tbody'), students);
+
+		tableView = new TableView(tableWrap, students);
 	}
 
 	return this;

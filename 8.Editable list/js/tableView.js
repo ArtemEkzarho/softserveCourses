@@ -30,7 +30,7 @@ function TableView (parentNode, students) {
 
     function edit (e) {
         var modelId = e.target.id.split('_')[1],
-            formController = new FormController(modelId);
+            formController = new FormController(modelId, parentNode);
     }
 
     return this;
