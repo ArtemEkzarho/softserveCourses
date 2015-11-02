@@ -6,7 +6,7 @@ function TableView (parentNode, students) {
                 '<td><%=name%></td>' +
                 '<td><%=surname%></td>' +
                 '<td><%=gender%></td>' +
-                '<td class="actions"><button class="editBtn">Edit</button></td>'+
+                '<td class="actions"><button class="editBtn" id="person_<%=id%>">Edit</button></td>'+
             '</tr>';
 
     render();
@@ -14,7 +14,7 @@ function TableView (parentNode, students) {
 
     function render () {
         students.forEach(function (student){
-            finalTpl += helpers.templater(row, student.toJSON());
+            finalTpl += helpers.templater(row, student.toShortJSON());
         });
 
         parentNode.innerHTML = finalTpl;
@@ -23,11 +23,14 @@ function TableView (parentNode, students) {
     function addHandlers () {
         var btns = helpers.getAllEl('.editBtn');
 
-        [].forEach.call(btns, function (item) {
-            item.addEventListener('click', function () {
-                var formController = new FormController();
-            });
+        helpers.forEach(btns, function (item) {
+            item.addEventListener('click', edit, false);
         });
+    }
+
+    function edit (e) {
+        var modelId = e.target.id.split('_')[1],
+            formController = new FormController(modelId);
     }
 
     return this;

@@ -1,7 +1,8 @@
 'use strict';
 
-function FormController () {
-    var preview = new PreviewView();
+function FormController (modelId) {
+    var parentNode = helpers.getEl('#editableForm'),
+        editview = new EditView(parentNode, modelId);
 
     return this
 }

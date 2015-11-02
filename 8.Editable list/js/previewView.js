@@ -1,7 +1,33 @@
 'use strict';
 
-function PreviewView () {
-	console.log('1');
+function PreviewView (parentNode, modelId) {
+	var previewTpl = 
+		'<p class="title"><b>Preview form</b></p>'+
+		'<p><b class="inputLabel">Name: </b><span><%=name%></span></p>'+
+		'<p><b class="inputLabel">Surname: </b><span><%=surname%></span></p>'+
+		'<p><b class="inputLabel">Gender: </b><span><%=gender%></span></p>'+
+		'<p><b class="inputLabel">Age: </b><span><%=age%></span></p>'+
+		'<p><b class="inputLabel">Mail: </b><span><%=mail%></span></p>'+
+		'<p><b class="inputLabel">Skype: </b><span><%=skype%></span></p>'+
+		'<button class="edit">Edit</button><button class="save">Save</button>',
+		model = helpers.getModelById(modelId, students),
+		editBtn,
+		saveBtn;
 
-	return this;
+	helpers.render(previewTpl, model.toFullJSON(), parentNode);
+
+	editBtn = helpers.getEl('.edit');
+	saveBtn = helpers.getEl('.save');
+	editBtn.addEventListener('click', goToEdit, false);
+	saveBtn.addEventListener('click', saveChanges, false);
+
+	function goToEdit () {
+		var editview = new EditView(parentNode, modelId);
+	}
+
+	function saveChanges () {
+		var tableView = new TableView(helpers.getEl('#students tbody'), students);
+	}
+
+	return this;	
 }

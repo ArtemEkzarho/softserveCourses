@@ -4,6 +4,26 @@
 
 table {
     border-collapse: collapse;
+    float: left;
+}
+
+#editableForm {
+	float: left;
+	margin-left: 70px;
+	line-height: 0;
+}
+
+    #editableForm .title {
+        margin: 3px 0px;
+        line-height: 2;
+    }
+
+    #editableForm span {
+        line-height: 1.9;
+    }
+
+.clear {
+	clear: both;
 }
 
 td, th {
@@ -27,4 +47,25 @@ tr:nth-child(odd) {
     .editBtn {
         width: 60%;
         height: 100%;
+        opacity: 0.5;
     }
+
+    .editBtn:hover {
+    	opacity: 1;
+    }
+
+.inputLabel {
+	width: 100px;
+    display: inline-block;
+}
+
+input {
+	height: 24px;
+	font-size: 17px;
+}
+
+.save, .preview, .edit {
+    width: 100px;
+    height: 40px;
+    margin-right: 10px;
+}

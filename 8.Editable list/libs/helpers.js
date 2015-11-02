@@ -20,9 +20,35 @@ var helpers = (function (){
         return completedRow;
     }
 
+    function forEach (collection, func) {
+        [].forEach.call(collection, func);
+    }
+
+    function getModelById (id, students) {
+        var id = +id,
+            studentJSON,
+            result;
+
+        helpers.forEach(students, function (student) {
+            studentJSON = student.toFullJSON();
+            if(studentJSON.id === id) {
+                result = student;
+            }
+        });
+
+        return result;
+    }
+
+    function render (tpl, model, node) {
+        node.innerHTML = helpers.templater(tpl, model);
+    }
+
     return {
         getEl: getEl,
         getAllEl: getAllEl,
-        templater: templater
+        templater: templater,
+        forEach: forEach,
+        getModelById: getModelById,
+        render: render
     }
 }());
