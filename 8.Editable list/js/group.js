@@ -12,7 +12,7 @@ function Group (students) {
     }
 
     this.toArray = function () {
-    	return studentsModels;
+        return studentsModels;
     }
 
     return this;
