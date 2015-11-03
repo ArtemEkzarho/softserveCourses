@@ -7,7 +7,7 @@ function Group (students) {
 
     function init () {
         helpers.forEach(students, function (student) {
-            studentsModels.push(new TableModel(student));
+            studentsModels.push(new StudentModel(student));
         });
     }
 

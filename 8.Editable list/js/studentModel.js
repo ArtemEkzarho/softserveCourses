@@ -1,6 +1,6 @@
 'use strict';
 
-function TableModel (personalData) {
+function StudentModel (personalData) {
     var personalData = personalData;
 
     this.toShortJSON = function () {
