@@ -30,7 +30,8 @@ function TableView (parentNode, students) {
 
     function edit (e) {
         var modelId = e.target.id.split('_')[1],
-            formController = new FormController(modelId, parentNode);
+            editableForm = helpers.getEl('#editableForm'),
+            editview = new EditView(editableForm, modelId, parentNode, students);
     }
 
     return this;

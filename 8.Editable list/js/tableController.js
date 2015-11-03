@@ -1,8 +1,8 @@
 'use strict';
 
-function TableController () {
-    var parentNode = helpers.getEl('#students tbody'),
-        tableView = new TableView(parentNode, students);
+function TableController (group) {
+    var tableWrap = helpers.getEl('#students tbody'),
+        tableView = new TableView(tableWrap, group.toArray());
 
     return this;
 };
