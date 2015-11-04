@@ -17,26 +17,13 @@ var helpers = (function (){
             completedRow = completedRow.replace('<%=' + key + '%>', list[key]);
         }
 
+        completedRow = completedRow.split('<%=').join('').split('%>').join('');
+
         return completedRow;
     }
 
     function forEach (collection, func) {
         [].forEach.call(collection, func);
-    }
-
-    function getModelById (id, students) {
-        var id = +id,
-            studentJSON,
-            result;
-
-        helpers.forEach(students, function (student) {
-            studentJSON = student.toFullJSON();
-            if(studentJSON.id === id) {
-                result = student;
-            }
-        });
-
-        return result;
     }
 
     function render (tpl, model, node) {
@@ -48,7 +35,6 @@ var helpers = (function (){
         getAllEl: getAllEl,
         templater: templater,
         forEach: forEach,
-        getModelById: getModelById,
         render: render
     }
 }());

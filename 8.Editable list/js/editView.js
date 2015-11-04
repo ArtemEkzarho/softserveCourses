@@ -1,6 +1,6 @@
 'use strict';
 
-function EditView (parentNode, modelId, tableWrap, students) {
+function EditView (parentNode, student) {
     var editableTpl = 
         '<p><b class="inputLabel">Name: </b><input type="text" name="name" value="<%=name%>"></p>'+
         '<p><b class="inputLabel">Surname: </b><input type="text" name="surname" value="<%=surname%>"></p>'+
@@ -8,36 +8,24 @@ function EditView (parentNode, modelId, tableWrap, students) {
         '<p><b class="inputLabel">Age: </b><input type="text" name="age" value="<%=age%>"></p>'+
         '<p><b class="inputLabel">Mail: </b><input type="text" name="mail" value="<%=mail%>"></p>'+
         '<p><b class="inputLabel">Skype: </b><input type="text" name="skype" value="<%=skype%>"></p>'+
-        '<p class="btns"><button class="preview">Preview</button><button class="save">Save</button></p>',
-        model = helpers.getModelById(modelId, students),
-        previewBtn,
-        saveBtn;
+        '<p class="btns"><button class="preview">Preview</button><button class="save">Save</button></p>';
 
-    helpers.render(editableTpl, model.toFullJSON(), parentNode);
+    parentNode.empty();
+    parentNode.append(helpers.templater(editableTpl, student.toFullJSON()));
 
-    previewBtn = helpers.getEl('.preview');
-    saveBtn = helpers.getEl('.save');
-    previewBtn.addEventListener('click', goToPreview, false);
-    saveBtn.addEventListener('click', saveChanges, false);
+    $('.preview').on('click', function () {
+    	var inputs = $('input');
 
+    	student.set(inputs);
+    	mediator.publish('showPreviewView', student);
+    });
 
-    function goToPreview () {
-        var inputs = helpers.getAllEl('input'),
-            preview;
+    $('.save').on('click', function () {
+    	var inputs = $('input');
 
-        model.set(inputs);
-
-        preview = new PreviewView(parentNode, modelId, tableWrap, students);
-    }
-
-    function saveChanges () {
-        var inputs = helpers.getAllEl('input'),
-            tableView;
-
-        model.set(inputs);
-
-        tableView = new TableView(tableWrap, students);
-    }
+    	student.set(inputs);
+    	mediator.publish('rerenderStudentView', student);
+    });
 
     return this;
 }

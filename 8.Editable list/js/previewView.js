@@ -1,6 +1,6 @@
 'use strict';
 
-function PreviewView (parentNode, modelId, tableWrap, students) {
+function PreviewView (parentNode, student) {
     var previewTpl = 
         '<p><b class="inputLabel">Name: </b><span><%=name%></span></p>'+
         '<p><b class="inputLabel">Surname: </b><span><%=surname%></span></p>'+
@@ -9,24 +9,18 @@ function PreviewView (parentNode, modelId, tableWrap, students) {
         '<p><b class="inputLabel">Mail: </b><span><%=mail%></span></p>'+
         '<p><b class="inputLabel">Skype: </b><span><%=skype%></span></p>'+
         '<p class="btns"><button class="edit">Edit</button><button class="save">Save</button></p>',
-        model = helpers.getModelById(modelId, students),
-        editBtn,
-        saveBtn;
+        model = student;
 
-    helpers.render(previewTpl, model.toFullJSON(), parentNode);
+    parentNode.empty();
+    parentNode.append(helpers.templater(previewTpl, model.toFullJSON()));
 
-    editBtn = helpers.getEl('.edit');
-    saveBtn = helpers.getEl('.save');
-    editBtn.addEventListener('click', goToEdit, false);
-    saveBtn.addEventListener('click', saveChanges, false);
+    $('.edit').on('click', function () {
+    	mediator.publish('showEditView', student);
+    });
 
-    function goToEdit () {
-        var editview = new EditView(parentNode, modelId, tableWrap, students);
-    }
-
-    function saveChanges () {
-        var tableView = new TableView(tableWrap, students);
-    }
+    $('.save').on('click', function () {
+    	mediator.publish('rerenderStudentView', student);
+    });
 
     return this;    
 }

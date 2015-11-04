@@ -15,23 +15,13 @@ function StudentModel (personalData) {
     };
 
     this.toFullJSON = function () {
-        var json = {};
-
-        json.id = personalData.id;
-        json.name = personalData.name;
-        json.surname = personalData.surname;
-        json.gender = personalData.gender;
-        json.age = personalData.age;
-        json.mail = personalData.mail;
-        json.skype = personalData.skype;
-
-        return json;
+        return personalData;
     };
 
     this.set = function (inputs) {
         var keyForPersonalData; 
 
-        helpers.forEach(inputs, function (input) {
+        inputs.each(function (index, input) {
             keyForPersonalData = input.name;
             personalData[keyForPersonalData] = input.value;
         });

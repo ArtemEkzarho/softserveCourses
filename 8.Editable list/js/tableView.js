@@ -1,38 +1,21 @@
 'use strict';
 
 function TableView (parentNode, students) {
-    var finalTpl = '',
-        row = '<tr>' +
-                '<td><%=name%></td>' +
-                '<td><%=surname%></td>' +
-                '<td><%=gender%></td>' +
-                '<td class="actions"><button class="editBtn" id="person_<%=id%>">Edit</button></td>'+
-            '</tr>';
+    var studentsViews = [],
+        finalTpl = '',
+        $wrap;
 
     render();
-    addHandlers();
 
     function render () {
+        var studentView;
+
         students.forEach(function (student){
-            finalTpl += helpers.templater(row, student.toShortJSON());
-        });
-
-        parentNode.innerHTML = finalTpl;
-    }
-
-    function addHandlers () {
-        var btns = helpers.getAllEl('.editBtn');
-
-        helpers.forEach(btns, function (item) {
-            item.addEventListener('click', edit, false);
+            $wrap = $('<tr></tr>');
+            parentNode.append($wrap);
+            studentView = new StudentView(student, $wrap);
+            studentsViews.push(studentView);
         });
     }
-
-    function edit (e) {
-        var modelId = e.target.id.split('_')[1],
-            editableForm = helpers.getEl('#editableForm'),
-            editview = new EditView(editableForm, modelId, parentNode, students);
-    }
-
     return this;
 }
