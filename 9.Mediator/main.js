@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         mediator.publish('changeColor', 'blue');
     }, false);
 
-    mediator.subsribe('changeColor', function (data) {
+    mediator.subscribe('changeColor', function (data) {
         divRed.className = data;
         divGreen.className = data;
         divBlue.className = data;
