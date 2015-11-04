@@ -8,11 +8,11 @@ function StudentView (student, $wrap) {
         finalRow,
         studentJSON = student.toShortJSON(),
         id = studentJSON.id,
-        $wrap = $wrap;
+        parentNode = $wrap;
 
     render(studentJSON);
 
-    console.log($wrap);
+    console.log(parentNode);
 
    	$('#person_' + id).on('click', function () {
    		mediator.publish('showEditView', student);
@@ -24,7 +24,8 @@ function StudentView (student, $wrap) {
 
     function render (obj) {
 		finalRow = helpers.templater(tpl, obj);
-		$wrap.append(finalRow);
+		parentNode.empty();
+		parentNode.append(finalRow);
     }
 
     return this;
