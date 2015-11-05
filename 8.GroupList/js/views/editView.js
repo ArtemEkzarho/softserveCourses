@@ -1,7 +1,7 @@
 'use strict';
 
-function EditView (parentNode, student) {
-    var editableTpl = 
+function EditView ($place, model) {
+	var editableTpl = 
         '<p><b class="inputLabel">Name: </b><input type="text" name="name" value="<%=name%>"></p>'+
         '<p><b class="inputLabel">Surname: </b><input type="text" name="surname" value="<%=surname%>"></p>'+
         '<p><b class="inputLabel">Gender: </b><input type="text" name="gender" value="<%=gender%>"></p>'+
@@ -10,21 +10,21 @@ function EditView (parentNode, student) {
         '<p><b class="inputLabel">Skype: </b><input type="text" name="skype" value="<%=skype%>"></p>'+
         '<p class="btns"><button class="preview">Preview</button><button class="save">Save</button></p>';
 
-    parentNode.empty();
-    parentNode.append(helpers.templater(editableTpl, student.toFullJSON()));
+    $place.empty();
+    $place.append(helpers.templater(editableTpl, model.getStudentData()));
 
     $('.preview').on('click', function () {
-    	var inputs = $('input');
+        var $inputs = $('input');
 
-    	student.set(inputs);
-    	mediator.publish('showPreviewView', student);
+        model.setStudentData($inputs);
+        mediator.publish('showPreviewView', model);
     });
 
     $('.save').on('click', function () {
-    	var inputs = $('input');
+        var $inputs = $('input');
 
-    	student.set(inputs);
-    	mediator.publish('rerenderStudentView', student);
+        model.setStudentData($inputs);
+        mediator.publish('rerenderStudentView', model);
     });
 
     return this;

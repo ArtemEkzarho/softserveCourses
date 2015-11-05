@@ -8,12 +8,8 @@ function Mediator () {
     };
 
     this.publish = function (channel, data) {
-        var key;
-
-        for (key in channels) {
-            if (key === channel) {
-                channels[key](data);
-            }
+        if (channel in channels) {
+            channels[channel](data);
         }
     };
 }
