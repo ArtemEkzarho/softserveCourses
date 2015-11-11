@@ -1,14 +1,9 @@
 'use strict';
 
 function StudentView ($wrap, student) {
-    var _tpl = _.template('<td><%=name%></td>' +
-        '<td><%=surname%></td>' +
-        '<td><%=gender%></td>' +
-        '<td class="actions"><button class="editBtn" id="person_<%=id%>">Edit</button></td>'),
+    var _tpl = _.template(templates.studentTpl),
         finalRow,
         model = student;
-
-        
 
     render(model.getStudentData());
 
@@ -25,8 +20,8 @@ function StudentView ($wrap, student) {
     function render (list) {
         finalRow = _tpl(list);
 
-        $wrap.empty();
-        $wrap.append(finalRow);
+        $wrap.empty()
+            .append(finalRow);
     }
 
     return this;
