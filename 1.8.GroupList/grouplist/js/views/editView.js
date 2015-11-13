@@ -1,7 +1,7 @@
 'use strict';
 
 function EditView ($place, model) {
-	var _tpl = _.template(templates.editTpl);
+    var _tpl = _.template(templates.editTpl);
 
     $place.empty()
         .append(_tpl(model.getStudentData()));

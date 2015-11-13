@@ -8,7 +8,7 @@ function Controller ($placeTable, $placeForm, students) {
     });
 
     mediator.subscribe('showPreviewView', function (data) {
-    	var previewView = new PreviewView($placeForm, data);
+        var previewView = new PreviewView($placeForm, data);
     });
 
     return this;

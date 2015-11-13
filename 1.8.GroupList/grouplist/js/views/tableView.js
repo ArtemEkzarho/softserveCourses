@@ -15,7 +15,7 @@ function TableView ($place, students) {
 
             studentView = new StudentView($tr, student);
             studentsViews.push(studentView);
-        }); 
+        });
     }
 
     return this;

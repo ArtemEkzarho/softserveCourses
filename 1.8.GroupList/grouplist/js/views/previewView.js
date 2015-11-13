@@ -1,8 +1,8 @@
 'use strict';
 
 function PreviewView ($place, model) {
-	 var _tpl = _.template(templates.previewTpl);
-	
+     var _tpl = _.template(templates.previewTpl);
+    
     $place.empty()
         .append(_tpl(model.getStudentData()));
 
@@ -14,5 +14,5 @@ function PreviewView ($place, model) {
         mediator.publish('rerenderStudentView', model);
     });
 
-	return this;
+    return this;
 }

@@ -5,7 +5,7 @@ function Mediator () {
 
     this.subscribe = function (channel, handler) {
         if (!channels[channel]) {
-        	channels[channel] = [];
+            channels[channel] = [];
         }
         
         channels[channel].push({ context: this, callback: handler });
@@ -14,11 +14,11 @@ function Mediator () {
     };
 
     this.publish = function (channel, data) {
-    	var i,
-    		subscription;
+        var i,
+            subscription;
 
         if (!channels[channel]) {
-        	return false;
+            return false;
         }
         
         for (i = 0; i < channels[channel].length; i++) {

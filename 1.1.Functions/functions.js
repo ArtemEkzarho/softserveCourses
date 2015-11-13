@@ -2,7 +2,7 @@
 
 function getMax (first, second, third) {
     var maxNumber = first,
-    	numbers = [first, second, third];
+        numbers = [first, second, third];
 
     for (var i = 0; i < numbers.length; i++) {
         if (numbers[i] > maxNumber) {
