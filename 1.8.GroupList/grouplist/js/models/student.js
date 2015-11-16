@@ -8,11 +8,11 @@ function Student (studentData) {
     }
 
     this.setStudentData = function ($inputs) {
-        var keyForStudentData;
+        var key;
 
         $inputs.each(function (index, input) {
-            keyForStudentData = input.name;
-            studentData[keyForStudentData] = input.value;
+            key = input.name;
+            studentData[key] = input.value;
         });
     }
 

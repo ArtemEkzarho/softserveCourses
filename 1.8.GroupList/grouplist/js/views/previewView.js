@@ -1,7 +1,7 @@
 'use strict';
 
 function PreviewView ($place, model) {
-     var _tpl = _.template(templates.previewTpl);
+    var _tpl = _.template(templates.previewTpl);
     
     $place.empty()
         .append(_tpl(model.getStudentData()));

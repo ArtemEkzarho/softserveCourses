@@ -17,5 +17,7 @@ function Group (collection) {
     this.getModels = function () {
         return models;
     }
+
+    return this;
 }
 

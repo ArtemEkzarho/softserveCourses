@@ -1,7 +1,9 @@
 'use strict';
 
-function Controller ($placeTable, $placeForm, students) {
-    var tableView = new TableView($placeTable, students);
+function Controller (students) {
+	var $placeTable = $('#students tbody'),
+        $placeForm = $('#editableForm'),
+		tableView = new TableView($placeTable, students);
 
     mediator.subscribe('showEditView', function (data) {
         var editView = new EditView($placeForm, data);

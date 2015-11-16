@@ -1,8 +1,7 @@
 'use strict';
 
 function TableView ($place, students) {
-    var studentsViews = [],
-        $tr;
+    var $tr;
 
     render();
 
@@ -14,7 +13,6 @@ function TableView ($place, students) {
             $place.append($tr);
 
             studentView = new StudentView($tr, student);
-            studentsViews.push(studentView);
         });
     }
 
