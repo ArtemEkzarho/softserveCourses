@@ -5,6 +5,8 @@ function FullTimer(clockWrap) {
     this.clockWrap = clockWrap;
 }
 
+extend(FullTimer, Timer);
+
 FullTimer.prototype.render = function () {
     var date = new Date(),
         hours = this.toDouble(date.getHours()),
@@ -19,26 +21,4 @@ FullTimer.prototype.render = function () {
 
     this.clockWrap.empty()
         .append(output);
-};
-
-FullTimer.prototype.toDouble = function (num) {
-    var result = num;
-
-    if (num < 10) {
-        result = '0' + num;
-    }
-
-    return result;
-};
-
-FullTimer.prototype.stop = function() {
-    clearInterval(this.timer);
-};
-
-FullTimer.prototype.start = function() {
-    this.render();
-
-    this.timer = setInterval($.proxy(function() {
-        this.render();
-    }, this), 1000);
 };
