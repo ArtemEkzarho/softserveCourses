@@ -1,0 +1,65 @@
+[{
+    "id": 0,
+    "name": "Artem",
+    "surname": "Ekzarkho",
+    "gender": "boy",
+    "age": 18,
+    "mail": "joeDoe@gmail.com",
+    "skype": "ololoev"
+},{
+    "id": 1,
+    "name": "Yevheniia", 
+    "surname": "Kryschyk",
+    "gender": "girl",
+    "age": 18,
+    "mail": "joeDoe@gmail.com",
+    "skype": "ololoev"
+},{
+    "id": 2,
+    "name": "Yulyia",
+    "surname": "Lureva",
+    "gender": "girl",
+    "age": 18,
+    "mail": "joeDoe@gmail.com",
+    "skype": "ololoev"
+},{
+    "id": 3,
+    "name": "Dmytro",
+    "surname": "Shashkov",
+    "gender": "boy",
+    "age": 18,
+    "mail": "joeDoe@gmail.com",
+    "skype": "ololoev"
+},{
+    "id": 4,
+    "name": "Marian",
+    "surname": "Kotsylovskyi",
+    "gender": "boy",
+    "age": 18,
+    "mail": "joeDoe@gmail.com",
+    "skype": "ololoev"
+},{
+    "id": 5,
+    "name": "Oleksandr",
+    "surname": "Poltorak", 
+    "gender": "boy",
+    "age": 18,
+    "mail": "joeDoe@gmail.com",
+    "skype": "ololoev"
+},{
+    "id": 6,
+    "name": "Dmytryi",
+    "surname": "Hunko",
+    "gender": "boy",
+    "age": 18,
+    "mail": "joeDoe@gmail.com",
+    "skype": "ololoev"
+},{
+    "id": 7,
+    "name": "Oleksandr",
+    "surname": "Denha",
+    "gender": "boy",
+    "age": 18,
+    "mail": "joeDoe@gmail.com",
+    "skype": "ololoev"
+}]
