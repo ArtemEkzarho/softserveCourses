@@ -9,15 +9,15 @@ function route(pathname, response) {
         response.end();
         return;
     } else if (pathname === '/students.json') {
-        file = new fs.ReadStream('students.json');
+        file = new fs.ReadStream('server/students.json');
 
         file.pipe(response);
     } else if (pathname === '/') {
-        file = new fs.ReadStream('grouplist/index.html');
+        file = new fs.ReadStream('client/index.html');
         
         file.pipe(response);
     } else {
-        file = new fs.ReadStream('grouplist' + pathname);
+        file = new fs.ReadStream('client' + pathname);
 
         file.pipe(response);
     }
