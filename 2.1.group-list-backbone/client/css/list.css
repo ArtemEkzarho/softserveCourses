@@ -47,7 +47,7 @@ tr:nth-child(odd) {
     .editBtn {
         width: 60%;
         height: 100%;
-        opacity: 0.5;
+        opacity: 0.2;
     }
 
     .editBtn:hover {

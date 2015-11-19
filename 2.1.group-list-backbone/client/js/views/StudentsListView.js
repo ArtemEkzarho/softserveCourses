@@ -21,7 +21,7 @@ var StudentsListView = Backbone.View.extend({
 	render: function () {
 		this.$el.html(this.template());
 
-		return this.$el;
+		return this;
 	},
 
 	renderListItems: function () {
@@ -30,7 +30,7 @@ var StudentsListView = Backbone.View.extend({
 				model: studentModel
 			});
 
-			this.$('tbody').append(studentListItemView.render());
+			this.$('tbody').append(studentListItemView.render().el);
 		}, this);	
 	}
 });

@@ -2,36 +2,31 @@
 
 var MainView = Backbone.View.extend({
 
-	template: _.template(templates.main),
+    template: _.template(templates.main),
 
-	initialize: function () {
-		this.studentsListView = new StudentsListView();
+    initialize: function () {
+        this.studentsListView = new StudentsListView();
 
-		mediator.subscribe('changeMode', this.startModeView, this);
-		this.render();
-	},
+        mediator.subscribe('changeMode', this.startModeView, this);
+        this.render();
+    },
 
-	render: function () {
-		this.$el.html(this.template());
+    render: function () {
+        this.$el.html(this.template());
 
-		this.$('.studentsList').html(this.studentsListView.render())
+        this.$('.studentsList').html(this.studentsListView.render().el);
+    },
 
-		return this.$el;
-	},
+    startModeView: function (options) {
+        var Mode = {
+            previewMode: PreviewView,
+            editMode: EditView
+        };
 
-	startModeView: function (options) {
-		var Mode = {
-			previewMode: PreviewView,
-			editMode: EditView	
-		};
+        this.modeView = new Mode[options.mode]({
+            model: options.model
+        });
 
-		if (this.modeView) {
-			this.modeView = null;
-		}
-		this.modeView = new Mode[options.mode]({
-			model: options.model
-		});
-
-		this.$('.editContainer').html(this.modeView.render());
-	}
+        this.$('.editContainer').html(this.modeView.render().el);
+    }
 });
