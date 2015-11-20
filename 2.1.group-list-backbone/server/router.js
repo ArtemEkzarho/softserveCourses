@@ -8,7 +8,7 @@ function route(pathname, response) {
         response.writeHead(404);
         response.end();
         return;
-    } else if (pathname === '/students.json') {
+    } else if (pathname === '/students') {
         file = new fs.ReadStream('server/students.json');
 
         file.pipe(response);

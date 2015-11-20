@@ -29,9 +29,13 @@ var EditView = Backbone.View.extend({
 	},
 
 	setArgumentsToModel: function () {
+		var json = {};
+
 		_.each(this.$('.editableField'), function (selector) {
-			this.model.set(selector.name, selector.value);
-		}, this);	
+			json[selector.name] = selector.value;
+		}, this);
+
+		this.model.set(json);
 	}
 
 });

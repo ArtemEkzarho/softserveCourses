@@ -11,11 +11,9 @@ var StudentsListView = Backbone.View.extend({
 	initialize: function () {
 		this.collection = new StudentsCollection();
 
-		this.collection.fetch({
-			success: function () {
-				this.renderListItems();
-			}.bind(this)
-		});	
+		this.listenTo(this.collection, 'reset', this.renderListItems);
+
+		this.collection.fetch({reset: true});
 	},
 
 	render: function () {
@@ -31,6 +29,6 @@ var StudentsListView = Backbone.View.extend({
 			});
 
 			this.$('tbody').append(studentListItemView.render().el);
-		}, this);	
+		}, this);
 	}
 });
